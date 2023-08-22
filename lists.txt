@@ -1,0 +1,103 @@
+https://github.com/awesome-yasin/PDF-Verse
+https://eversign.com/
+https://github.com/ShizukuIchi/pdf-editor
+https://github.com/Hopding/pdf-lib
+https://github.com/mozilla/pdf.js/
+
+
+// Steps:
+When a user clicks on the "Signature" button, 
+the code displays a signature pad using the SignaturePad library. 
+The signature pad is an HTML5 canvas element where the user can draw their signature using a mouse or touch input.
+
+When the user clicks the "OK" button on the signature pad, 
+the code captures the signature as an image using the toDataURL() method on the canvas element.
+
+The signature image is then added to the PDF document as a new annotation using pdf-lib. 
+An annotation is a type of PDF object that can represent visual elements such as text, images, or form fields.
+
+The signature annotation is displayed on the PDF page as an image with a transparent background, 
+using the XObjectImage class in pdf-lib.
+
+The code allows the user to drag the signature annotation to any position on the PDF page using JavaScript and 
+HTML5 drag and drop functionality. When the user releases the mouse button, 
+the new position of the annotation is saved in the PDF data.
+
+The code also allows the user to resize the signature annotation by dragging the 
+corners of the bounding box. When the user resizes the annotation, 
+the size and position of the annotation are updated in the PDF data.
+
+When the user clicks the "Save" button, the code generates a new PDF document with the edited content using pdf-lib, 
+and initiates a download for the user.
+
+Overall, the signature feature in the PDF editor code is implemented using a combination of JavaScript, 
+HTML5 canvas, and the pdf-lib library. The code captures the signature as an image, 
+adds it to the PDF document as an annotation, and allows the user to drag and resize the annotation as needed.
+
+There is no "Signature" button that displays the signature pad when clicked. You may need to add this button or trigger the signature pad display in some other way.
+The code allows the user to drag and drop the signature annotation to any position on the PDF page, but it does not save the new position in the PDF data as required. You may need to add code to save the new position to the PDF data when the user releases the mouse button.
+The code allows the user to resize the signature annotation by dragging the corners of the bounding box, but it does not update the size and position of the annotation in the PDF data as required. You may need to add code to update the size and position of the annotation in the PDF data when the user resizes the annotation.
+The transparency of the signature annotation is hard-coded to 0.5. You may need to allow the user to set the transparency of the annotation as required.
+
+
+// ALL STEPS DESTRUCTURED = MY_APP_REQUIREMENTS
+    => The user selects a PDF file using the file input element.
+ 
+    => The PDF file is loaded into the application using the PDF-lib library. The pdf will be displayed as soon as the user selects one.
+ 
+    => A canvas element is displayed on the page where the user can draw their signature using the react-signature-canvas library.
+ 
+    => Once the user is happy with their signature, they click the "OK" button, which saves the signature as a PNG image and sets the state of the application to include the signature image. 
+    That Signature Image will be shown over a resizable div over the displayed pdf. 
+ 
+    => The user can then drag and drop the signature image onto the PDF document preview to position it where they want it to appear on the document.
+ 
+    => When the user is happy with the signature placement, they click the "Sign PDF" button.
+ 
+    => The signature image is embedded into the PDF document using the PDF-lib library, and a new PDF document with the embedded signature is created.
+ 
+    => The new PDF document is saved as a blob and set as the state of the application.
+ 
+    => The user can download the signed PDF document by clicking the "Download PDF" button.
+ 
+    => Overall, the code is a React component that uses various libraries and HTML elements to allow the user to sign a PDF document using a 
+    canvas-based signature pad and embed the signature into the document.
+
+
+
+
+// Create a draggable hook
+https://www.youtube.com/watch?v=zUHc0SplCAI
+================================================================================================================================================================================================
+TUTS:
+    1. React drag and drop with clone:
+        sandbox: https://codesandbox.io/s/react-beautiful-dnd-copy-and-drag-forked-bz1bq4?file=/index.js
+    
+    2. React drag and resizable with jquery:
+        sandbox: http://jsfiddle.net/akashdmukherjee/sa44ks9u/4/
+
+    3. React drag and resizable with pure javascript:
+        sandbox: https://medium.com/the-z/making-a-resizable-div-in-js-is-not-easy-as-you-think-bda19a1bc53d
+================================================================================================================================================================================================
+DESTRUCTURE:
+ async function savePDF() {
+    if (!pdfFile || saving || !pages.length) return;
+    saving = true;
+    try {
+      await save(pdfFile, allObjects, pdfName, pagesScale);
+    } catch (e) {
+      console.log(e); 
+    } finally {
+      saving = false;
+    }
+  }
+================================================================================================================================================================================================
+ADJUST THE COORDINATE SYSTEM OF THE PDF-LIB TO COORESPOND TO GUI COORDINATE SYSTEM:
+
+To adjust the coordinate system of pdf-lib to correspond to GUI interface, 
+you need to subtract the y value of the newSigDimensions parameter from the height of the page. 
+This will flip the y coordinate from the top-left corner of the GUI to the bottom-left corner of the PDF page.
+So, in the embedImageIntoPdf function, change the y value in the drawImage function to:
+
+y: height - newSigDimensions.position.y - newSigDimensions.height,
+This will adjust the y coordinate in the PDF document to match the y coordinate in the GUI interface.

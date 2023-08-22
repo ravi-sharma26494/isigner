@@ -1,0 +1,8 @@
+.div__main{
+    width: 700px;
+    height: 900px;
+    background-color: #AFD3E2;
+}
+.modal-dialog{
+    z-index: 999;
+}

@@ -1,0 +1,69 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  #upload-button {
+    width: 150px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    background: skyblue;
+    color: white;
+    border: none;
+  }
+  
+  #file-to-upload {
+    display: none;
+  }
+  
+  #pdf-main-container {
+    width: 100%;
+    margin: 20px auto;
+  }
+  
+  #pdf-meta {
+    overflow: hidden;
+  }
+  
+  #pdf-buttons {
+    float: left;
+  }
+  
+  #page-count-container {
+    float: right;
+  }
+  
+  #pdf-current-page {
+    display: inline;
+  }
+  
+  #pdf-total-pages {
+    display: inline;
+  }
+  
+  #image-convas-row {
+    display: flex;
+    margin: 20px 0;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  #pdf-canvas {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+  
+  #download-image {
+    width: 150px;
+    display: block;
+    margin: 20px auto 0 auto;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  #image-generated {
+    margin-left: 20px;
+    border: 1px solid green;
+  }
+  
