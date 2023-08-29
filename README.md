@@ -16,7 +16,7 @@ iSigner is a web application that allows users to add their own signatures to PD
 
 ## Demo
 
-Check out the [demo video]([https://www.awesomescreenshot.com/video/20308842?key=2254908ce7f19b2ef013456be2d07fde]) to see iSigner in action.
+Check out the [demo video](https://www.awesomescreenshot.com/video/20308842?key=2254908ce7f19b2ef013456be2d07fde) to see iSigner in action.
 
 ## Live Website
 
@@ -63,4 +63,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-_Disclaimer: iSigner is a personal project developed by [Your Name](https://github.com/your-username). The project is provided as-is without any warranties. Usage of the project and any consequences arising from it are the user's responsibility._
+_Disclaimer: iSigner is a personal project developed by [Ravi Sharma](https://github.com/ravi-sharma26494). The project is provided as-is without any warranties. Usage of the project and any consequences arising from it are the user's responsibility._
